@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alan.ApiDocumentation.Demonstration</name>
+    </assembly>
+    <members>
+        <member name="T:Alan.ApiDocumentation.Demonstration.API.OrderController">
+            <summary>
+            Order API
+            </summary>
+        </member>
+        <member name="M:Alan.ApiDocumentation.Demonstration.API.OrderController.Get">
+            <summary>
+            Get All Orders
+            </summary>
+            <author>God</author>
+            <returns>{}</returns>
+            <returns-fail>
+            {
+                success: false,
+                message: "失败原因"
+            }
+            </returns-fail>
+        </member>
+        <member name="M:Alan.ApiDocumentation.Demonstration.API.OrderController.Get(System.Int32)">
+            <summary>
+            Query order by order id
+            </summary>
+            <param name="id" is-required="true">Order id</param>
+            <returns-fail>
+            {
+                success: bool/false,
+                message: string
+            }
+            </returns-fail>
+            <returns>
+            {
+                success: bool,
+                message: string,
+                data: [{
+                    fn: string,
+                    ln: string
+                }]
+            }
+            </returns>
+        </member>
+        <member name="M:Alan.ApiDocumentation.Demonstration.API.OrderController.Delete(System.Int32)">
+            <summary>
+            Delete order by order id
+            </summary>
+            <param name="id">Order id</param>
+            <returns>{}</returns>
+        </member>
+        <member name="M:Alan.ApiDocumentation.Demonstration.API.OrderController.Post(Alan.ApiDocumentation.Demonstration.Models.Order)">
+            <summary>
+            新增订单
+            </summary>
+            <author>Alan Wei</author>
+            <param name="order">订单信息</param>
+            <returns>
+            {
+                success: bool,
+                message: string,
+                data:[
+                    OrderId: int,
+                    OrderAddr: string,
+                    Price: decimal
+                ]
+            }
+            </returns>
+        </member>
+        <member name="M:Alan.ApiDocumentation.Demonstration.API.OrderController.Put(System.Int32,Alan.ApiDocumentation.Demonstration.Models.Order)">
+            <summary>
+            更新订单
+            </summary>
+            <param name="id" is-required="true">订单ID</param>
+            <param name="order" is-required="false">订单信息</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:Alan.ApiDocumentation.Demonstration.Controllers.HomeController">
+            <summary>
+            Home controller
+            </summary>
+        </member>
+        <member name="M:Alan.ApiDocumentation.Demonstration.Controllers.HomeController.Index">
+            <summary>
+            Index action
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Alan.ApiDocumentation.Demonstration.Controllers.PersonController">
+            <summary>
+            个人信息
+            </summary>
+        </member>
+        <member name="M:Alan.ApiDocumentation.Demonstration.Controllers.PersonController.GetFullName(System.Int32)">
+            <summary>
+            获取个人姓名
+            </summary>
+            <author>Bill Gates</author>
+            <returns>
+            {
+                success: false,
+                message: string/错误消息,
+                data: {
+                    Id: int/帖子Id, 
+                    IsGlobalOnTop: bool/是否全局置顶,  
+                    IsOnTop: bool/是否分类置顶, 
+                    PostContent: string/帖子内容
+                }
+            }
+            </returns>
+        </member>
+        <member name="T:Alan.ApiDocumentation.Demonstration.Models.Order">
+            <summary>
+            订单
+            </summary>
+        </member>
+        <member name="P:Alan.ApiDocumentation.Demonstration.Models.Order.OrderId">
+            <summary>
+            订单ID
+            </summary>
+        </member>
+        <member name="P:Alan.ApiDocumentation.Demonstration.Models.Order.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:Alan.ApiDocumentation.Demonstration.Models.Order.Address">
+            <summary>
+            订单地址
+            </summary>
+        </member>
+    </members>
+</doc>
