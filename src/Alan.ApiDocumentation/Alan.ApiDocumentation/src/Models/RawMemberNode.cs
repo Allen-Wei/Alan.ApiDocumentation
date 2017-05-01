@@ -78,8 +78,8 @@ namespace Alan.ApiDocumentation.Models
                 {
                     TMethod method = methodNode.ToModel<TMethod>();
                     var childNodes = methodNode.GetRawNode().ChildNodes.Where(t => t.TagName == method.GetParameterTagName()).ToList();
-                    var parameters = childNodes.Select(child => child.ToModel<TParameter>()).ToList();
-                    method.ParameterMembers = parameters;
+                    List<TParameter> parameters = childNodes.Select(child => child.ToModel<TParameter>()).ToList();
+                    method.SetParameterMembers(parameters);
 
                     if (methodMemberCallback != null)
                         if (methodMemberCallback(method) == false)
@@ -103,7 +103,7 @@ namespace Alan.ApiDocumentation.Models
             String xmlPath,
            params IApiQueryable[] queryables)
             where TType : IRawTypeMemberNode<TMethod, TParameter>, new()
-            where TMethod : ApiDescriptionEntity, IRawMethodMemberNode<TParameter>, new()
+            where TMethod : IApiMethodMemberNode, IRawMethodMemberNode<TParameter>, new()
             where TParameter : new()
         {
             List<ApiDescriptionEntity> apis = queryables.Select(query => query.GetApis())
@@ -115,10 +115,8 @@ namespace Alan.ApiDocumentation.Models
                 methodMemberCallback: method =>
                 {
                     var api = apis.FirstOrDefault(a => a.MethodId == method.GetNameId());
-                    method.MethodId = method.GetNameId();
                     if (api == null) return false;
-                    method.HttpMethod = api.HttpMethod;
-                    method.Url = api.Url;
+                    method.SetApiInfo(api);
                     return true;
                 });
         }

@@ -18,6 +18,7 @@ namespace Alan.ApiDocumentation.Demonstration.Controllers
         /// 获取个人姓名
         /// </summary>
         /// <author>Bill Gates</author>
+        /// <param name="id">Person id</param>
         /// <returns>
         /// {
         ///     success: false,

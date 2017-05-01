@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Alan.ApiDocumentation.Models
 {
-    public class MethodMember<TParameter> : ApiDescriptionEntity, IRawMethodMemberNode<TParameter>
+    public class MethodMember<TParameter> : IRawMethodMemberNode<TParameter>, IApiMethodMemberNode
         where TParameter : new()
     {
 
@@ -45,6 +45,21 @@ namespace Alan.ApiDocumentation.Models
         public virtual string GetParameterTagName()
         {
             return "param";
+        }
+
+        public String HttpMethod { get; set; }
+        public String RelativeUrl { get; set; }
+        public List<ApiParaDescEntity> ParametersInfo { get; set; }
+        public void SetParameterMembers(IEnumerable<TParameter> parameterNodes)
+        {
+            this.ParameterMembers = parameterNodes.ToList();
+        }
+
+        public void SetApiInfo(ApiDescriptionEntity api)
+        {
+            this.HttpMethod = api.HttpMethod;
+            this.RelativeUrl = api.RelativeUrl;
+            this.ParametersInfo = api.Parameters.ToList();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Alan.ApiDocumentation.Models
         [RawMember("name")]
         public String Name {  get; set; }
         [RawMember(RawMemberNode.NODE_VALUE_ATTRIBUTE_NAME)]
-        public String Value { get; set; }
+        public String Summary { get; set; }
 
         public string GetXmlMemberName()
         {

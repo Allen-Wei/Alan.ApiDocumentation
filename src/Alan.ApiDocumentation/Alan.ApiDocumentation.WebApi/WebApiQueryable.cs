@@ -14,13 +14,12 @@ namespace Alan.ApiDocumentation.WebApi
         public IEnumerable<ApiDescriptionEntity> GetApis()
         {
             var query = from api in System.Web.Http.GlobalConfiguration.Configuration.Services.GetApiExplorer().ApiDescriptions
-                        select new ApiDescriptionEntity()
-                        {
-                            HttpMethod = api.HttpMethod.ToString(),
-                            Url = api.RelativePath,
-                            MethodId = $"{api.ActionDescriptor.ControllerDescriptor.ControllerType}.{api.ActionDescriptor.ActionName}({String.Join(",", api.ActionDescriptor.GetParameters().Select(para => para.ParameterType.FullName))})",
-                            //api.ActionDescriptor.pa
-                        };
+                        select ApiDescriptionEntity.Init(
+                            api.HttpMethod.ToString(),
+                            api.RelativePath,
+                            $"{api.ActionDescriptor.ControllerDescriptor.ControllerType}.{api.ActionDescriptor.ActionName}({String.Join(",", api.ActionDescriptor.GetParameters().Select(para => para.ParameterType.FullName))})",
+                            api.ActionDescriptor.GetParameters().Select(param => ApiParaDescEntity.Init(param.ParameterName, param.ParameterType.FullName))
+                        );
 
             return query;
         }

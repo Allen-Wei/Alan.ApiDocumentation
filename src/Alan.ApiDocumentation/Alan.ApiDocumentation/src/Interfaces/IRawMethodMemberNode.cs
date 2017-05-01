@@ -11,6 +11,6 @@ namespace Alan.ApiDocumentation.Interfaces
         where TParameter : new()
     {
         String GetParameterTagName();
-        List<TParameter> ParameterMembers { set; }
+        void SetParameterMembers(IEnumerable<TParameter> parameterNodes);
     }
 }

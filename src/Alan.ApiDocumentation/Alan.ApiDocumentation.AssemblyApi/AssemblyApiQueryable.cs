@@ -47,12 +47,12 @@ namespace Alan.ApiDocumentation.AssemblyApi
                     return pre;
                 })
                 .Where(combined => combined.MethodAttribute != null)
-                .Select(combined => new ApiDescriptionEntity
-                {
-                    MethodId = $"{combined.TypeValue.FullName}.{combined.MethodValue.Name}({String.Join(",", combined.MethodValue.GetParameters().Select(para => para.ParameterType.FullName))})",
-                    HttpMethod = combined.MethodAttribute.HttpMethod,
-                    Url = combined.MethodAttribute.RelativeUrl
-                })
+                .Select(combined => ApiDescriptionEntity.Init(
+                     combined.MethodAttribute.HttpMethod,
+                     combined.MethodAttribute.RelativeUrl,
+                     $"{combined.TypeValue.FullName}.{combined.MethodValue.Name}({String.Join(",", combined.MethodValue.GetParameters().Select(para => para.ParameterType.FullName))})",
+                     combined.MethodValue.GetParameters().Select(para => ApiParaDescEntity.Init(para.Name, para.ParameterType.FullName))
+                ))
                 .ToList();
 #else
             var apis = this.assembly.DefinedTypes
@@ -68,12 +68,12 @@ namespace Alan.ApiDocumentation.AssemblyApi
                     return pre;
                 })
                 .Where(combined => combined.MethodAttribute != null)
-                .Select(combined => new ApiDescriptionEntity
-                {
-                    MethodId = $"{combined.TypeValue.FullName}.{combined.MethodValue.Name}({String.Join(",", combined.MethodValue.GetParameters().Select(para => para.ParameterType.FullName))})",
-                    HttpMethod = combined.MethodAttribute.HttpMethod,
-                    Url = combined.MethodAttribute.RelativeUrl
-                })
+                .Select(combined => ApiDescriptionEntity.Init(
+                     combined.MethodAttribute.HttpMethod,
+                     combined.MethodAttribute.RelativeUrl,
+                     $"{combined.TypeValue.FullName}.{combined.MethodValue.Name}({String.Join(",", combined.MethodValue.GetParameters().Select(para => para.ParameterType.FullName))})",
+                     combined.MethodValue.GetParameters().Select(para => ApiParaDescEntity.Init(para.Name, para.ParameterType.FullName))
+                ))
                 .ToList();
 #endif
 

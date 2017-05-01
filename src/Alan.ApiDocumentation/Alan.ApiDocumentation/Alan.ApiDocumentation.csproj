@@ -41,10 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Attributes\MethodMemberAttribute.cs" />
+    <Compile Include="src\Attributes\ApiMethodMemberAttribute.cs" />
     <Compile Include="src\Attributes\RawMemberAttribute.cs" />
+    <Compile Include="src\Interfaces\IApiMethodMemberNode.cs" />
     <Compile Include="src\Models\ApiDescriptionEntity.cs" />
-    <Compile Include="src\Models\ApiParamDescriptionEntity.cs" />
+    <Compile Include="src\Models\ApiParaDescEntity.cs" />
     <Compile Include="src\Interfaces\IApiQueryable.cs" />
     <Compile Include="src\Interfaces\IGeneralRawMemberNode.cs" />
     <Compile Include="src\Interfaces\IRawMethodMemberNode.cs" />
