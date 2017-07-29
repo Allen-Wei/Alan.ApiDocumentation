@@ -126,6 +126,7 @@
     </Compile>
     <Compile Include="Models\CustomParameterMember.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

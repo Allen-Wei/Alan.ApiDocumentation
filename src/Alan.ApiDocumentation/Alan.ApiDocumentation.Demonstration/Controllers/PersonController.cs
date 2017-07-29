@@ -1,4 +1,5 @@
 ﻿using Alan.ApiDocumentation.Attributes;
+using Alan.ApiDocumentation.Demonstration.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,19 @@ namespace Alan.ApiDocumentation.Demonstration.Controllers
         public ActionResult GetFullName(int id)
         {
             return Json(new { }, JsonRequestBehavior.AllowGet);
+        }
+
+        /// <summary>
+        /// 新增个人
+        /// </summary>
+        /// <param name="person">个人信息</param>
+        /// <author>Alan Wei</author>
+        /// <returns></returns>
+        [ApiMethodMember("Person/AddPerosn", "POST")]
+        [HttpPost]
+        public ActionResult AddPerson(Person person)
+        {
+            return null;
         }
     }
 }
