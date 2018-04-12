@@ -112,6 +112,14 @@
             }
             </returns>
         </member>
+        <member name="M:Alan.ApiDocumentation.Demonstration.Controllers.PersonController.AddPerson(Alan.ApiDocumentation.Demonstration.Models.Person)">
+            <summary>
+            新增个人
+            </summary>
+            <param name="person">个人信息</param>
+            <author>Alan Wei</author>
+            <returns></returns>
+        </member>
         <member name="T:Alan.ApiDocumentation.Demonstration.Models.Order">
             <summary>
             订单
@@ -130,6 +138,26 @@
         <member name="P:Alan.ApiDocumentation.Demonstration.Models.Order.Address">
             <summary>
             订单地址
+            </summary>
+        </member>
+        <member name="T:Alan.ApiDocumentation.Demonstration.Models.Person">
+            <summary>
+            个人信息
+            </summary>
+        </member>
+        <member name="P:Alan.ApiDocumentation.Demonstration.Models.Person.FirstName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Alan.ApiDocumentation.Demonstration.Models.Person.LastName">
+            <summary>
+            姓氏
+            </summary>
+        </member>
+        <member name="P:Alan.ApiDocumentation.Demonstration.Models.Person.Age">
+            <summary>
+            年龄
             </summary>
         </member>
     </members>
