@@ -53,7 +53,7 @@
     <Compile Include="src\Models\GeneralRawMemberNode.cs" />
     <Compile Include="src\Models\MethodMember.cs" />
     <Compile Include="src\Models\ParameterMember.cs" />
-    <Compile Include="src\Models\RawMemberNode.cs" />
+    <Compile Include="src\Utils\RawMemberNode.cs" />
     <Compile Include="src\Models\TypeMember.cs" />
     <Compile Include="src\Utils\ExtensionMethods.cs" />
   </ItemGroup>

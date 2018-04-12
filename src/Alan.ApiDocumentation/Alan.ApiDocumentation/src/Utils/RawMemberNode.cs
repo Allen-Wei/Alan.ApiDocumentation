@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Alan.ApiDocumentation.Interfaces;
-using Alan.ApiDocumentation.Utils;
+using Alan.ApiDocumentation.Models;
 
-namespace Alan.ApiDocumentation.Models
+namespace Alan.ApiDocumentation.Utils
 {
     public class RawMemberNode
     {
@@ -54,7 +54,7 @@ namespace Alan.ApiDocumentation.Models
 
         public static IEnumerable<TType> Parse<TType, TMethod, TParameter>(
             String xmlPath,
-           Func<TType, bool> typeMemberCallback,
+            Func<TType, bool> typeMemberCallback,
             Func<TMethod, bool> methodMemberCallback)
             where TType : IRawTypeMemberNode<TMethod, TParameter>, new()
             where TMethod : IRawMethodMemberNode<TParameter>, new()
